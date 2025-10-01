@@ -5,10 +5,10 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip && \
     pip3 install requests argparse
+WORKDIR /app
+COPY execute_get_api.py /app/execute_get_api.py
 
-COPY execute_get_api.py /execute_get_api.py
 
-
-ENTRYPOINT ["python3", "execute_get_api.py"]
+ENTRYPOINT ["python3", "/app/execute_get_api.py"]
 CMD ["default_arg"]
 
