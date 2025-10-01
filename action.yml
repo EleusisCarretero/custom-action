@@ -1,24 +1,24 @@
+name: Execute GET API
+description: Executes the get command from some API endpoint
+author: EleusisCarretero
+branding:
+  icon: gift
+  color: blue
 
-name: 'Execute GET API'
-description: 'Executes the get command from some api endpoint'
 inputs:
   endpoint:
-    description: 'API endpoint'
+    description: API endpoint (e.g. /v1/data)
     required: true
   params:
-    description: 'Params needed for get command'
+    description: Params needed for GET in JSON or query (e.g. a=1&b=2 or {"a":1})
     required: false
-    default: '{}'
+    default: "{}"
 
 runs:
-  using: 'docker'
-  image: 'DockerFile'
+  using: docker
+  image: Dockerfile
   args:
-    - '-e'
-    - ${{inputs.endpoint}}
-    - '-p'
-    - ${{inputs.params}}
-
-branding:
-  icon: 'gift'
-  color: 'blue'
+    - -e
+    - ${{ inputs.endpoint }}
+    - -p
+    - ${{ inputs.params }}
