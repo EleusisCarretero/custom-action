@@ -1,0 +1,24 @@
+
+name: 'Execute GET API'
+description: 'Executes the get command from some api endpoint'
+inputs:
+  endpoint:
+    description: 'API endpoint'
+    required: true
+  params:
+    description: 'Params needed for get command'
+    required: false
+    default: {}
+
+runs:
+  using: 'docker'
+  image: 'DockerFile'
+  args:
+    - '-e'
+    - ${{inputs.endpoint}}
+    - '-p'
+    - ${{inputs.params}}
+
+branding:
+  icon: 'gift'
+  color: 'blue'
