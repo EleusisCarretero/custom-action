@@ -8,7 +8,7 @@ inputs:
   params:
     description: 'Params needed for get command'
     required: false
-    default: {}
+    default: '{}'
 
 runs:
   using: 'docker'
